@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
 
 import {getAllInfos, getSort} from "../actions";
 import {bindActionCreators} from "redux";
@@ -64,24 +63,24 @@ class App extends Component {
 		}
 		
 		if (event === "") {
-			this.state.sort.map((x,i) => {
-				if(x.type === type) {
+			for(let i = 0; i < this.state.sort.length; i++) {
+				if(this.state.sort[i].type === type) {
 					tab.splice(i, 1);
 					this.setState({sort: tab})
 				}
-			})
+			}
 		} else {
 			let count = 0;
-			this.state.sort.map((x,i) => {
-				if(x.type === type) {
+			for(let i = 0; i < this.state.sort.length; i++) {
+				if(this.state.sort[i].type === type) {
 					let newObject = {
-						...x,
+						...this.state.sort[i],
 						action: action
 					};
 					tab.splice(i, 1, newObject);
 					count++
 				}
-			})
+			}
 			if(count === 0) {
 				tab.push({type, action});
 				this.setState({sort: tab})
