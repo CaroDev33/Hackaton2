@@ -6,40 +6,45 @@ import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
+
 import Avatar from "@material-ui/core/Avatar";
 
+
+function getModalStyle() {
+  const top = 50 ;
+  const left = 50;
+
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
+}
+
+
+
 const styles = theme => ({
-	paper: {
-		position: "absolute",
-		width: theme.spacing.unit * 50,
-		backgroundColor: theme.palette.background.paper,
-		boxShadow: theme.shadows[5],
-		padding: theme.spacing.unit * 4
-	},
+  paper: {
+    position: 'relative',
+    width: theme.spacing.unit * 110,
+
+  },
 	card: {
-		maxWidth: 400
+    maxWidth: theme.spacing.unit * 110,
+    fontSize: "1.3rem",
 	},
 	media: {
 		height: "auto",
-		backgroundColor: "red",
-		paddingTop: "56.25%" // 16:9
-	},
-	actions: {
-		display: "flex"
-	},
-	expand: {
-		transform: "rotate(0deg)",
-		transition: theme.transitions.create("transform", {
-			duration: theme.transitions.duration.shortest
-		}),
-		marginLeft: "auto"
-	},
-	expandOpen: {
-		transform: "rotate(180deg)"
+	  paddingTop: "56.25%" // 16:9
 	},
 	avatar: {
 		backgroundColor: "#FFD700",
-	}
+  },
+  title:{
+    "font-size": "1.3rem",
+    backgroundColor: "red",
+  }
+ 
 });
 
 class Attraction extends Component {
@@ -48,23 +53,28 @@ class Attraction extends Component {
 		const { classes } = this.props;
 		return (
 			<div>
-				<Modal
+        <Modal 
 				onClose={this.props.onClose}
-				open={this.props.open}>
-					<Card className={classes.card}>
+        open={this.props.open}
+        >
+        <div style={getModalStyle()} className={classes.paper}>
+          <Card className={classes.card}>
+          
 						<CardHeader
 							avatar={
-								<Avatar aria-label="Recipe" src={this.props.infos.avatar} className={classes.avatar} />
+								<Avatar aria-label="avatar" src={this.props.infos.avatar} className={classes.avatar} />
 							}
-							title={this.props.infos.nom}
-							subheader={this.props.infos.horaires}/>
+              title={this.props.infos.nom}
+              subheader={this.props.infos.horaires}
+              />
 						<CardMedia className={classes.media} image={this.props.infos.image} title={this.props.infos.nom}/>
 						<CardContent>
-							<Typography component="p">
+							<Typography component="p" variant="subheading" >
 								{this.props.infos.description}
 							</Typography>
 						</CardContent>
-					</Card>
+          </Card>
+         </div>
 				</Modal>
 			</div>
 		);
