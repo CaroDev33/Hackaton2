@@ -12,7 +12,7 @@ import SortingByType from '../components/SortingByType';
 import SortingByLevel from '../components/SortingByLevel';
 import Map from './Map'
 
-import "../index.css";
+// import "../index.css";
 
 class App extends Component {
 	constructor(props) {
@@ -93,7 +93,8 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<Grid container style={{marginBottom:"50px"}}>
+				<h1 style={{marginLeft:"630px", paddingBottom:"1px", paddingTop:"1px"}} >WildLand</h1>
+				<Grid container style={{marginBottom:"-20px", paddingLeft:"230px", paddingBottom:"20px", marginRight:"150px", backgroundColor: "#b9ddfa"}}>
 					<Grid item xs={4}>
 						<SortingByTime statusTime={this.state.statusTime} change={this.handleChange.bind(this)}/>
 					</Grid>
