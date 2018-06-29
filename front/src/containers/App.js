@@ -26,11 +26,11 @@ class App extends Component {
 			statusNiveau:''
 		};
 	}
-	
+
 	componentWillMount() {
 		this.props.getAllInfos();
 	}
-	
+
 	componentWillReceiveProps(nextProps) {
 		if (this.state.data.length === 0) {
 			this.setState({data: nextProps.All, renderSort: nextProps.All})
@@ -39,7 +39,7 @@ class App extends Component {
 		}
 		this.getStatus();
 	}
-	
+
 	getStatus() {
 		if((this.state.statusNiveau)||(this.state.statusTime)||(this.state.statusType)) {
 			this.setState({status:true})
@@ -47,7 +47,7 @@ class App extends Component {
 			this.setState({status:false})
 		}
 	}
-	
+
 	handleChange = (event, type) => {
 		let action = event;
 		let tab = this.state.sort;
@@ -61,7 +61,7 @@ class App extends Component {
 			default:
 				this.setState({statusType:'', statusTime:'', statusNiveau:''});
 		}
-		
+
 		if (event === "") {
 			for(let i = 0; i < this.state.sort.length; i++) {
 				if(this.state.sort[i].type === type) {
@@ -88,21 +88,26 @@ class App extends Component {
 		}
 		this.props.getSort(tab)
 	};
-	
+
 	render() {
 		return (
 			<div>
-				<h1 style={{marginLeft:"630px", paddingBottom:"1px", paddingTop:"1px"}} >WildLand</h1>
-				<Grid container style={{marginBottom:"-20px", paddingLeft:"230px", paddingBottom:"20px", marginRight:"150px", backgroundColor: "#b9ddfa"}}>
-					<Grid item xs={4}>
+				<h1 style={{textAlign:"center"}} >WildLand</h1>
+				<Grid container style={{
+						backgroundColor: "#b9ddfa",
+						display: "flex",
+				    justifyContent: "space-evenly",
+				    alignItems: "center",
+				    padding: "1.5em 0",
+						marginBottom: '-20px',
+					}}>
+
 						<SortingByTime statusTime={this.state.statusTime} change={this.handleChange.bind(this)}/>
-					</Grid>
-					<Grid item xs={4}>
+
 						<SortingByType statusType={this.state.statusType} change={this.handleChange.bind(this)}/>
-					</Grid>
-					<Grid item xs={4}>
+
 						<SortingByLevel statusNiveau={this.state.statusNiveau} change={this.handleChange.bind(this)}/>
-					</Grid>
+
 				</Grid>
 				<Grid container>
 					<Map/>
