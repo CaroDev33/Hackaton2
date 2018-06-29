@@ -21,7 +21,7 @@ class SortingByType extends Component {
 						<MenuItem value="">
 							<em>Aucun</em>
 						</MenuItem>
-						<MenuItem value='spectacle'>Spectable</MenuItem>
+						<MenuItem value='spectacle'>Spectacle</MenuItem>
 						<MenuItem value='humour'>Humour</MenuItem>
 						<MenuItem value='agile'>Agile</MenuItem>
 						<MenuItem value='sensations_fortes'>Sensations fortes</MenuItem>
