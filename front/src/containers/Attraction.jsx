@@ -10,8 +10,25 @@ import CardContent from "@material-ui/core/CardContent";
 import Avatar from "@material-ui/core/Avatar";
 
 
+function getModalStyle() {
+  const top = 50 ;
+  const left = 50;
+
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
+}
+
+
 
 const styles = theme => ({
+  paper: {
+    position: 'relative',
+    width: theme.spacing.unit * 50,
+
+  },
 	card: {
 		maxWidth: 400
 	},
@@ -21,7 +38,8 @@ const styles = theme => ({
 	},
 	avatar: {
 		backgroundColor: "#FFD700",
-	}
+  },
+ 
 });
 
 class Attraction extends Component {
@@ -30,9 +48,12 @@ class Attraction extends Component {
 		const { classes } = this.props;
 		return (
 			<div>
-				<Modal
+        <Modal 
+      
 				onClose={this.props.onClose}
-				open={this.props.open}>
+        open={this.props.open}
+        >
+        <div style={getModalStyle()} className={classes.paper}>
 					<Card className={classes.card}>
 						<CardHeader
 							avatar={
@@ -46,7 +67,8 @@ class Attraction extends Component {
 								{this.props.infos.description}
 							</Typography>
 						</CardContent>
-					</Card>
+          </Card>
+         </div>
 				</Modal>
 			</div>
 		);
