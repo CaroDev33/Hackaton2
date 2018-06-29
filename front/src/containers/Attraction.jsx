@@ -26,11 +26,12 @@ function getModalStyle() {
 const styles = theme => ({
   paper: {
     position: 'relative',
-    width: theme.spacing.unit * 50,
+    width: theme.spacing.unit * 110,
 
   },
 	card: {
-		maxWidth: 400
+    maxWidth: theme.spacing.unit * 110,
+    fontSize: "1.3rem",
 	},
 	media: {
 		height: "auto",
@@ -39,6 +40,10 @@ const styles = theme => ({
 	avatar: {
 		backgroundColor: "#FFD700",
   },
+  title:{
+    "font-size": "1.3rem",
+    backgroundColor: "red",
+  }
  
 });
 
@@ -49,21 +54,22 @@ class Attraction extends Component {
 		return (
 			<div>
         <Modal 
-      
 				onClose={this.props.onClose}
         open={this.props.open}
         >
         <div style={getModalStyle()} className={classes.paper}>
-					<Card className={classes.card}>
+          <Card className={classes.card}>
+          
 						<CardHeader
 							avatar={
 								<Avatar aria-label="avatar" src={this.props.infos.avatar} className={classes.avatar} />
 							}
-							title={this.props.infos.nom}
-							subheader={this.props.infos.horaires}/>
+              title={this.props.infos.nom}
+              subheader={this.props.infos.horaires}
+              />
 						<CardMedia className={classes.media} image={this.props.infos.image} title={this.props.infos.nom}/>
 						<CardContent>
-							<Typography component="p">
+							<Typography component="p" variant="subheading" >
 								{this.props.infos.description}
 							</Typography>
 						</CardContent>
