@@ -15,10 +15,10 @@ class Map extends Component {
 			status:false
 		};
 	}
-	
+
 	componentWillReceiveProps(nextProps) {
 		console.log('nextProps : ', nextProps)
-		
+
 		if (this.state.data.length === 0) {
 			this.setState({status:false});
 			this.setState({data: nextProps.All, renderSort: nextProps.All})
@@ -27,7 +27,7 @@ class Map extends Component {
 			this.setState({renderSort: nextProps.Sort})
 		}
 	}
-	
+
 	handleOpen = (nom) => {
 		this.setState({ open: true });
 		if(!this.state.open) {
@@ -36,11 +36,11 @@ class Map extends Component {
 			this.getDetails()
 		}
 	};
-	
+
 	handleClose = () => {
 		this.setState({ open:false, modal:{} });
 	};
-	
+
 	getDetails(nom) {
 		let tab = this.props.All;
 		if (this.state.status) {
@@ -52,7 +52,7 @@ class Map extends Component {
 			}
 		}
 	}
-	
+
 	render() {
 		let tab = this.props.All;
 		if (this.state.status) {
@@ -70,14 +70,14 @@ class Map extends Component {
 										     onClick={() => this.handleOpen(x.nom)}
 										     src={x.marqueur}
 										     alt="marker"
-										     width={80 / 2}
+										     width={50}
 										     height={143 / 2}
 										/>
 									</div>
 								)
 							})
 						}
-						
+
 					</div>
 					<div>
 						<div>
@@ -86,7 +86,7 @@ class Map extends Component {
 					</div>
 				</div>
 			);
-		
+
 	}
 }
 
