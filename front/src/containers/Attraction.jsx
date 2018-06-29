@@ -36,7 +36,7 @@ class Attraction extends Component {
 					<Card className={classes.card}>
 						<CardHeader
 							avatar={
-								<Avatar aria-label="Recipe" src={this.props.infos.avatar} className={classes.avatar} />
+								<Avatar aria-label="avatar" src={this.props.infos.avatar} className={classes.avatar} />
 							}
 							title={this.props.infos.nom}
 							subheader={this.props.infos.horaires}/>
