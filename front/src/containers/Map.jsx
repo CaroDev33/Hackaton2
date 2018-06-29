@@ -4,14 +4,6 @@ import {getDetails} from "../actions";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
-const initialState = {
-	data: [],
-	renderSort: [],
-	open: false,
-	modal:{},
-	status:false
-}
-
 class Map extends Component {
 	constructor(props) {
 		super(props);
@@ -24,31 +16,15 @@ class Map extends Component {
 		};
 	}
 	
-	reset() {
-		this.props.reset();
-		this.state = {
-			data: [],
-			renderSort: [],
-			open: false,
-			modal:{},
-			status:false
-		};
-	}
-	
 	componentWillReceiveProps(nextProps) {
+		console.log('nextProps : ', nextProps)
+		
 		if (this.state.data.length === 0) {
+			this.setState({status:false});
 			this.setState({data: nextProps.All, renderSort: nextProps.All})
 		} else {
+			this.setState({status:true});
 			this.setState({renderSort: nextProps.Sort})
-		}
-		this.getStatus();
-	}
-	
-	getStatus() {
-		if((this.state.renderSort !== this.state.data)&&(this.state.renderSort.length !== 0)) {
-			this.setState({status:true})
-		} else {
-			this.setState({status:false})
 		}
 	}
 	
@@ -70,11 +46,11 @@ class Map extends Component {
 		if (this.state.status) {
 			tab = this.props.Sort;
 		}
-		tab.map(x => {
-			if(x.nom === nom) {
-				this.setState({modal:x})
+		for(let i = 0; i < tab.length; i++) {
+			if(tab[i].nom === nom) {
+				this.setState({modal:tab[i]})
 			}
-		})
+		}
 	}
 	
 	render() {
