@@ -12,7 +12,7 @@ import SortingByType from '../components/SortingByType';
 import SortingByLevel from '../components/SortingByLevel';
 import Map from './Map'
 
-import "../index.css";
+// import "../index.css";
 
 class App extends Component {
 	constructor(props) {
