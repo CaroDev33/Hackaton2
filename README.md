@@ -1,46 +1,43 @@
-# bdx-0218-js-taka
-Projet 3 - Taka
+# bdx-0218-js-hackathon2
 
-## Repository initialization
+Consignes :
 
- 1. ```git clone <githubLink>```
+La holding “Planet Coaster”, spécialiste des parcs d’attraction , s’est énormément agrandi depuis plusieurs années et beaucoup de visiteurs se sont plaint de ne pas pouvoir accéder facilement à leurs attractions & stands préférés.
 
+Dans le but d’attirer plus de monde et garder ses visiteurs les plus fidèles, le parc voudrait développer une application (desktop) permettant de pouvoir retrouver facilement une attraction présente dans le parc.
 
- 2. change files you do not want to be tracked and use the following command:
+Pour cela, il a besoin d’afficher une carte interactive de ses attractions, représentant fidèlement le parc, avec la possibilité de filtrer les attractions en fonction de plusieurs critères : 
 
+Le type d’attraction (horreur, humour, romantique, etc…)
+L’âge minimum requis (enfant, adolescent, adulte)
+Le temps d’attente moyen (< 5min, < 10min, etc…)
+(Soyez inventif sur les critères de filtres possibles)
 
-```git update-index --assume-unchanged back/helpers/db.js```
+Le visiteur pourra également sélectionner l’attraction de son choix, dans le but d’afficher des informations supplémentaires sur cette attraction
 
+Le type d’attraction
+Une photo
+Les heures d’ouverture / fermeture
+L’âge minimum requis
+Le temps moyen d’attente
+etc...
 
-```git update-index --assume-unchanged back/helpers/sql.js```
+En équipe de 4 ou 5, vous devez développer cette application dans les prochaines 48 heures (et pas une minute de plus!!)
 
+L’équipe en charge du projet sera composée de développeurs fullstack.
+Développeurs PHP et Javascript peuvent travailler ensemble !
 
+En étroite collaboration, les équipes devront participer à l’élaboration de toute l’application ( API + visuel ) tout en respectant les règles de codage et les bonnes pratiques de développement.
 
-*(and if you want to track the changes again use this command :)*
+Installation :
 
+1 - downlaod project
 
-```git update-index --no-assume-unchanged back/helpers/db.js```
+In your terminal :
 
+2 - npm install in folders /back & /front
 
-```git update-index --no-assume-unchanged back/helpers/sql.js```
-
-
-3. Install SQL & Mongo databases (/backup)
-
-
-__(/Taka is the finalized mongoDB database to import for a functional project linked with the SQL tables)__
-
-mongo_database.js is to create a new database mongoDB
-
-*if the mongoDB database already exist, restore the dump in /backup, without connection in mongo :*
-
-
-```mongorestore --db Taka```
-
-4. in /back/helpers/db.js & /back/helpers/sql.js, write yours HOST_NAME, PORT, DB_NAME, USER, PASSWORD
-
-
-5. ```npm install``` in folders /back & /front
+3 - npm start first in the folder /back & then in the folder /front
 
 
-6. ```npm start``` first in the folder /back & then in the folder /front
+
